@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Navbaar</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      {{#link-to 'index' classNames='nav-link'}}Home{{/link-to}}
+    </li>
+    <li class="nav-item">
+      {{#link-to 'purchase-orders' classNames='nav-link'}}Purchase Orders{{/link-to}}
+    </li>
+  </ul>
+  <form class="form-inline pull-xs-right">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success-outline" type="submit">Search</button>
+  </form>
+</nav>
+
+<div class="container-fluid">
+  {{outlet}}
+</div>

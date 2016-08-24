@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <h3 class="clearfix">
+        Purchase Orders
+        <hr>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        </div>
+        <div class="card-block">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>BaanId</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model as |purchaseOrder|}}
+                <tr>
+                  <th scope="row">{{purchaseOrder.id}}</th>
+                  <td>{{purchaseOrder.baanId}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

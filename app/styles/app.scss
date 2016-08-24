@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+// $navbar-default-bg: #3097d1;
+$navbar-default-bg: #3498db;
+
+$navbar-default-color: #fff;
+$navbar-default-link-color: #fff;
+$navbar-default-link-hover-color: #d16a2e;
+// $navbar-border-radius: 0px;
+$font-family-base: 'Roboto', sans-serif;
+
+$list-group-active-bg: #fff;
+$list-group-active-color: #42A5F5;
+$list-group-active-border: #ddd;
+$list-group-hover-bg: #fff !default;
+$list-group-link-hover-color: $list-group-active-color !default;
+
+@import "bootstrap"
