@@ -21,6 +21,7 @@
               <tr>
                 <th>#</th>
                 <th>BaanId</th>
+                <th>Tour</th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                 <tr>
                   <th scope="row">{{purchaseOrder.id}}</th>
                   <td>{{purchaseOrder.baanId}}</td>
+                  <td>{{purchaseOrder.shippingRoute.name}}</td>
                 </tr>
               {{/each}}
             </tbody>
