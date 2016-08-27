@@ -9,7 +9,7 @@
     <div class="col-md-4">
       {{outlet}}
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-block">
           <h4 class="card-title">Card title</h4>
@@ -19,17 +19,27 @@
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>BaanId</th>
+                <th>VK</th>
+                <th>
+                  Handelspartner
+                </th>
                 <th>Tour</th>
+                <th>
+                  Versand
+                </th>
               </tr>
             </thead>
             <tbody>
               {{#each model as |purchaseOrder|}}
                 <tr>
-                  <th scope="row">{{purchaseOrder.id}}</th>
-                  <td>{{purchaseOrder.baanId}}</td>
+                  <td scope="row">{{purchaseOrder.baanId}}</td>
+                  <td>
+                    {{purchaseOrder.shippingAddress.consigneeFull}}
+                  </td>
                   <td>{{purchaseOrder.shippingRoute.name}}</td>
+                  <td>
+                    {{purchaseOrder.deliveryDate}}
+                  </td>
                 </tr>
               {{/each}}
             </tbody>
