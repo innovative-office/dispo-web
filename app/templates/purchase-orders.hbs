@@ -38,7 +38,7 @@
                   </td>
                   <td>{{purchaseOrder.shippingRoute.name}}</td>
                   <td>
-                    {{purchaseOrder.deliveryDate}}
+                    {{moment-format purchaseOrder.deliveryDate "DD-MM-YYYY" allow-empty=true}}
                   </td>
                 </tr>
               {{/each}}
