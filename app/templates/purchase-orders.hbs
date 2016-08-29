@@ -21,9 +21,15 @@
               <tr>
                 <th>VK</th>
                 <th>
+                  Paletten
+                </th>
+                <th>
                   Handelspartner
                 </th>
                 <th>Tour</th>
+                <th>
+                  Gebiet
+                </th>
                 <th>
                   Versand
                 </th>
@@ -34,9 +40,15 @@
                 <tr>
                   <td scope="row">{{purchaseOrder.baanId}}</td>
                   <td>
+                    {{purchaseOrder.calculation.totalPallets}}
+                  </td>
+                  <td>
                     {{purchaseOrder.shippingAddress.consigneeFull}}
                   </td>
                   <td>{{purchaseOrder.shippingRoute.name}}</td>
+                  <td>
+                    {{purchaseOrder.purchasePositions.firstObject.zipLocation.title}}
+                  </td>
                   <td>
                     {{moment-format purchaseOrder.deliveryDate "DD-MM-YYYY" allow-empty=true}}
                   </td>

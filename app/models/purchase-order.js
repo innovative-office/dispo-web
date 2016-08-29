@@ -7,5 +7,6 @@ export default DS.Model.extend({
   deliveryDate: DS.attr(),
   purchasePositions: DS.hasMany('purchase-position'),
   shippingRoute: DS.belongsTo('shipping-route'),
-  shippingAddress: DS.belongsTo('shipping-address')
+  shippingAddress: DS.belongsTo('shipping-address'),
+  calculation: DS.belongsTo('calculation')
 });
