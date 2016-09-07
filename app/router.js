@@ -8,7 +8,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('purchase-orders');
-  this.route('baan-imports');
+  this.route('baan-imports', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

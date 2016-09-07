@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-block">
+    <h6 class="card-subtitle text-muted">New Import</h6>
+  </div>
+  <div class="card-block">
+    <form>
+      <div class="form-group">
+        <label for="inputBaanUpload">Upload</label>
+        {{input type="text" value=model.baanUpload class="form-control" id="inputBaanUpload" aria-describedby="baanUploadHelp" placeholder="File..."}}
+        <small id="baanUploadHelp" class="form-text text-muted">File - .csv</small>
+      </div>
+      <button type="submit" class="btn btn-primary" {{action "saveModel"}}>Save</button>
+    </form>
+  </div>
+</div>
+{{outlet}}

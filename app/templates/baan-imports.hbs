@@ -1,1 +1,58 @@
-{{outlet}}
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <h3 class="clearfix">
+        Importer
+        {{#link-to 'baan-imports.new' class="pull-sm-right btn btn-outline-primary"}}New{{/link-to}}
+        <hr>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        </div>
+        <div class="card-block">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  #ID
+                </th>
+                <th>
+                  File
+                </th>
+                <th>
+                  Imported At
+                </th>
+                <th>
+                  Created At
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model as |baanImport|}}
+                <tr>
+                  <td scope="row">{{baanImport.id}}</td>
+                  <td>
+                    <a href={{baanImport.url}}>{{baanImport.baanUploadFileName}}</a>
+                  </td>
+                  <td>
+                    {{moment-format baanImport.importingDate "DD-MM-YYYY" allow-empty=true}}
+                  </td>
+                  <td>
+                    {{moment-format baanImport.createdAt "DD-MM-YYYY" allow-empty=true}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
