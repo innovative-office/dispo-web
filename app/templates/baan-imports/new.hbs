@@ -6,8 +6,7 @@
     <form>
       <div class="form-group">
         <label for="inputBaanUpload">Upload</label>
-        {{input type="text" value=model.baanUpload class="form-control" id="inputBaanUpload" aria-describedby="baanUploadHelp" placeholder="File..."}}
-        <small id="baanUploadHelp" class="form-text text-muted">File - .csv</small>
+        {{file-input handleFileAsDataURL="getFileDataUrl" class="form-control"}}
       </div>
       <button type="submit" class="btn btn-primary" {{action "saveModel"}}>Save</button>
     </form>
