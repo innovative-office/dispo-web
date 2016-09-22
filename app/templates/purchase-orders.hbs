@@ -38,7 +38,7 @@
             <tbody>
               {{#each model as |purchaseOrder|}}
                 <tr>
-                  <td scope="row">{{purchaseOrder.baanId}}</td>
+                  <td scope="row">{{#link-to "purchase-order" purchaseOrder}}{{purchaseOrder.baanId}}{{/link-to}}</td>
                   <td>
                     {{purchaseOrder.calculation.totalPallets}}
                   </td>

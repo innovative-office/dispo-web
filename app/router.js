@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('purchase-orders');
+  this.route('purchase-order', { path: '/purchase-orders/:purchase-order_id' });
   this.route('baan-imports', function() {
     this.route('new');
   });

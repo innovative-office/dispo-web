@@ -5,6 +5,10 @@ export default DS.Model.extend({
   deliveryDate: DS.attr(),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
+  availableQuantity: DS.attr(),
+  article: DS.attr(),
+  articleNumber: DS.attr(),
+  storageLocation: DS.attr(),
   purchaseOrder: DS.belongsTo('purchase-order'),
   zipLocation: DS.belongsTo('zip-location')
 });

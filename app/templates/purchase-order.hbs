@@ -1,0 +1,62 @@
+{{outlet}}
+<div class="row">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">VK-Auftrag <small class="text-muted">{{model.baanId}}</small></h4>
+        <p class="card-text"><small class="text-muted">Empfänger:<br>{{model.shippingAddress.consigneeFull}}</small></p>
+      </div>
+      <img alt="Chart?cht=qr&amp;chs=154x154&amp;chl={{model.baanId}}" class="img-fluid" src="https://chart.googleapis.com/chart?cht=qr&amp;chs=130x130&amp;chl={{model.baanId}}">
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-block">
+        <h6 class="card-subtitle text-muted">Verfügbare Positionen</h6>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>
+              Lager
+            </th>
+            <th>
+              Artikel
+            </th>
+            <th>Gebiet</th>
+            <th>
+              Versand
+            </th>
+            <th>
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model.purchasePositions as |purchasePosition|}}
+            <tr>
+              <td scope="row">{{purchasePosition.baanId}}</td>
+              <td>
+                {{purchasePosition.storageLocation}}
+              </td>
+              <td>
+                {{purchasePosition.articleNumber}} {{purchasePosition.article}}
+              </td>
+              <td>
+                {{purchasePosition.zipLocation.title}}
+              </td>
+              <td>
+                {{moment-format purchasePosition.deliveryDate "DD-MM-YYYY" allow-empty=true}}
+              </td>
+              <td>
+                {{purchasePosition.availableQuantity}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
