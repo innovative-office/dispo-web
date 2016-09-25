@@ -57,6 +57,13 @@
         </tbody>
       </table>
     </div>
+    {{#each model.pallets as |pallet|}}
+    <div class="card">
+      <div class="card-block">
+        <h6 class="card-subtitle text-muted">Palette - {{pallet.id}}</h6>
+      </div>
+    </div>
+    {{/each}}
 
   </div>
 </div>
