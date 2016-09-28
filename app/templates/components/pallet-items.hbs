@@ -1,0 +1,45 @@
+{{yield}}
+<div class="card">
+  <div class="card-block">
+    <h6 class="card-subtitle text-muted">Palette - {{pallet.id}}</h6>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Lager</th>
+        <th>Artikel</th>
+        <th>Gebiet</th>
+        <th>Versand</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each pallet.lineItems as |lineItem|}}
+        <tr>
+          <td scope="row">{{lineItem.variant.purchasePosition.baanId}}</td>
+          <td>
+            {{lineItem.variant.purchasePosition.storageLocation}}
+          </td>
+          <td>
+            {{lineItem.variant.purchasePosition.articleNumber}} {{lineItem.variant.purchasePosition.article}}
+          </td>
+          <td>
+            {{lineItem.variant.purchasePosition.zipLocation.title}}
+          </td>
+          <td>
+            {{moment-format lineItem.variant.purchasePosition.deliveryDate "DD-MM-YYYY" allow-empty=true}}
+          </td>
+          <td>
+            {{lineItem.quantity}}
+          </td>
+          <td>
+            {{pallet-item-increase-button lineItem=lineItem purchasePosition=lineItem.variant.purchasePosition submitItem="increase"}}
+            {{pallet-item-decrease-button lineItem=lineItem purchasePosition=lineItem.variant.purchasePosition submitItem="decrease"}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

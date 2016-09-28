@@ -10,5 +10,6 @@ export default DS.Model.extend({
   valueDiscount: DS.attr(),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
-  volume: DS.attr()
+  volume: DS.attr(),
+  purchasePosition: DS.belongsTo('purchase-position')
 });
