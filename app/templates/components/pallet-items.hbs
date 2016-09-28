@@ -35,8 +35,7 @@
             {{lineItem.quantity}}
           </td>
           <td>
-            {{pallet-item-increase-button lineItem=lineItem purchasePosition=lineItem.variant.purchasePosition submitItem="increase"}}
-            {{pallet-item-decrease-button lineItem=lineItem purchasePosition=lineItem.variant.purchasePosition submitItem="decrease"}}
+            {{pallet-assignment-actions lineItem=lineItem purchasePosition=lineItem.variant.purchasePosition increaseItem="increase" decreaseItem="decrease"}}
           </td>
         </tr>
       {{/each}}

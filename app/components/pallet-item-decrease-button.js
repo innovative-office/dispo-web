@@ -2,11 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isDisabled: Ember.computed('purchasePosition.availableQuantity', function() {
-    if (this.get('purchasePosition.availableQuantity') > 0) {
-      return false;
-    } else {
-      return true;
-    }
+    return false;
   }),
 
   actions: {

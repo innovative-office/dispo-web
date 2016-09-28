@@ -18,19 +18,12 @@
         <thead>
           <tr>
             <th>Position</th>
-            <th>
-              Lager
-            </th>
-            <th>
-              Artikel
-            </th>
+            <th>Lager</th>
+            <th>Artikel</th>
             <th>Gebiet</th>
-            <th>
-              Versand
-            </th>
-            <th>
-              Total
-            </th>
+            <th>Versand</th>
+            <th>Total</th>
+            <th style="width: 160px;"></th>
           </tr>
         </thead>
         <tbody>
@@ -52,9 +45,26 @@
               <td>
                 {{purchasePosition.availableQuantity}}
               </td>
+              <td>
+                {{position-quantity-input purchasePosition=purchasePosition action="considerItem"}}
+              </td>
             </tr>
           {{/each}}
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6">
+            </td>
+            <td>
+              <div class="input-group">
+                {{input value=palletId classNames="form-control"}}
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button" {{action 'assignItems'}}><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
     {{#each model.pallets as |pallet|}}
