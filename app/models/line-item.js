@@ -12,5 +12,6 @@ export default DS.Model.extend({
   valueDiscount: DS.attr(),
   isIndividualPackage: DS.attr(),
   pallet: DS.belongsTo("pallet"),
-  variant: DS.belongsTo("variant")
+  variant: DS.belongsTo("variant"),
+  purchasePosition: DS.belongsTo("purchase-position")
 });

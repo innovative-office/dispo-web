@@ -15,4 +15,96 @@ $list-group-active-border: #ddd;
 $list-group-hover-bg: #fff !default;
 $list-group-link-hover-color: $list-group-active-color !default;
 
-@import "bootstrap"
+@import "bootstrap";
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.d-modal {
+  background: rgba(30, 30, 30, 0.5);
+  position: fixed;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.d-modal-dialog {
+  transform: translate(0,0);
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+@media (min-width: 544px) {
+  .d-modal-dialog {
+    max-width: 600px;
+    margin: 30px auto;
+  }
+}
+
+.d-modal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+
+.d-modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.d-modal-title {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.d-modal-body {
+  position: relative;
+  padding: 15px;
+}
+
+.d-modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}

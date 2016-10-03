@@ -1,7 +1,13 @@
 {{yield}}
-<div class="card">
+<div class="card {{if pallet.selected "card-4"}}">
   <div class="card-block">
-    <h6 class="card-subtitle text-muted">Palette - {{pallet.id}}</h6>
+    <h6 class="card-subtitle text-muted clearfix">
+      Palette - {{pallet.id}}
+      <div class="pull-sm-right">
+        <button type="button" name="selectPallet" class="btn btn-outline-primary btn-sm" {{action "selectPallet" pallet}}><i class="fa fa-crosshairs"></i></button>
+        <button type="button" name="deletePallet" class="btn btn-outline-warning btn-sm" {{action "destroyPallet" pallet}}><i class="fa fa-trash"></i></button>
+      </div>
+    </h6>
   </div>
   <table class="table">
     <thead>

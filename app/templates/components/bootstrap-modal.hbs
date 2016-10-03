@@ -1,0 +1,18 @@
+{{#if enabled}}
+  <div class="d-modal">
+    <div class="d-modal-dialog">
+      <div class="d-modal-content">
+        <div class="d-modal-header">
+          <h4 class="d-modal-title">{{title}}</h4>
+        </div>
+        <div class="d-modal-body">
+          {{yield}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" {{action "secondaryAction"}}>Close</button>
+          <button type="button" class="btn btn-primary" {{action "primaryAction"}}>Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

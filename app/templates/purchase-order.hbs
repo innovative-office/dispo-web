@@ -12,7 +12,17 @@
   <div class="col-md-9">
     <div class="card">
       <div class="card-block">
-        <h6 class="card-subtitle text-muted">Verfügbare Positionen</h6>
+        <h6 class="card-subtitle text-muted clearfix">
+          Verfügbare Positionen
+          <div class="pull-sm-right">
+            <button type="button" name="externalPallet" class="btn btn-outline-warning btn-sm" {{action "showModal" "bootstrap-modal" pallet}}>
+              <i class="fa fa-external-link"></i>
+            </button>
+            <button type="button" name="buildPallet" class="btn btn-outline-warning btn-sm" {{action "buildPallet" pallet}}>
+              <i class="fa fa-file-o"></i>
+            </button>
+          </div>
+        </h6>
       </div>
       <table class="table">
         <thead>
@@ -27,7 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          {{#each model.purchasePositions as |purchasePosition|}}
+          {{#each availableItems as |purchasePosition|}}
             <tr>
               <td scope="row">{{purchasePosition.baanId}}</td>
               <td>
@@ -57,19 +67,24 @@
             </td>
             <td>
               <div class="input-group">
-                {{input value=palletId classNames="form-control"}}
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button" {{action 'assignItems'}}><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                </span>
+                <button class="btn btn-outline-primary btn-block" type="button" {{action 'assignItems'}} disabled={{hasLineItems}}><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
               </div>
             </td>
           </tr>
         </tfoot>
       </table>
     </div>
-    {{#each model.pallets as |pallet|}}
-      {{pallet-items pallet=pallet}}
+    {{#each sortedPallets as |pallet|}}
+      {{pallet-items pallet=pallet action="selectPallet"}}
     {{/each}}
 
   </div>
 </div>
+
+{{#bootstrap-modal enabled=showModal title="Externe Palette" primaryAction="fetchPallet" secondaryAction="discardFetchPallet"}}
+<form>
+  <div class="form-group">
+    {{input type="number" value=externalPalletId classNames="form-control"}}
+  </div>
+</form>
+{{/bootstrap-modal}}
