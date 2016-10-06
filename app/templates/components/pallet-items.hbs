@@ -2,10 +2,13 @@
 <div class="card {{if pallet.selected "card-4"}}">
   <div class="card-block">
     <h6 class="card-subtitle text-muted clearfix">
-      Palette - {{pallet.id}}
+      {{#link-to 'pallet.edit' pallet}}Palette - {{pallet.id}}{{/link-to}}
       <div class="pull-sm-right">
         <button type="button" name="selectPallet" class="btn btn-outline-primary btn-sm" {{action "selectPallet" pallet}}><i class="fa fa-crosshairs"></i></button>
         <button type="button" name="deletePallet" class="btn btn-outline-warning btn-sm" {{action "destroyPallet" pallet}}><i class="fa fa-trash"></i></button>
+        {{#if isMixed}}
+          <button type="button" name="unlinkPallet" class="btn btn-outline-warning btn-sm" {{action "unlinkPallet" pallet}}><i class="fa fa-chain-broken"></i></button>
+        {{/if}}
       </div>
     </h6>
   </div>
@@ -24,7 +27,7 @@
     <tbody>
       {{#each pallet.lineItems as |lineItem|}}
         <tr>
-          <td scope="row">{{lineItem.variant.purchasePosition.baanId}}</td>
+          <td scope="row">{{#link-to "purchase-position.edit" lineItem.variant.purchasePosition}}{{lineItem.variant.purchasePosition.baanId}}{{/link-to}}</td>
           <td>
             {{lineItem.variant.purchasePosition.storageLocation}}
           </td>

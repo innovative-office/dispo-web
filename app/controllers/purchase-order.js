@@ -28,6 +28,7 @@ export default Ember.Controller.extend({
         self.set('externalPalletId', null);
 
         pallet.get('purchaseOrders').addObject(self.get('model'));
+        pallet.save();
         pallet.set('selected', true);
       });
     },

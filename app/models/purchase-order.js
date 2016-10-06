@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import Calculable from '../mixins/calculable';
 
-export default DS.Model.extend({
+export default DS.Model.extend(Calculable, {
   baanId: DS.attr(),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
@@ -8,6 +9,5 @@ export default DS.Model.extend({
   purchasePositions: DS.hasMany('purchase-position'),
   shippingRoute: DS.belongsTo('shipping-route'),
   shippingAddress: DS.belongsTo('shipping-address'),
-  calculation: DS.belongsTo('calculation'),
   pallets: DS.hasMany('pallet')
 });
