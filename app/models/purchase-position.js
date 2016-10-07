@@ -6,6 +6,7 @@ export default DS.Model.extend({
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
   availableQuantity: DS.attr(),
+  quantity: DS.attr(),
   article: DS.attr(),
   articleNumber: DS.attr(),
   storageLocation: DS.attr(),

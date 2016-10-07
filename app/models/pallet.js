@@ -6,5 +6,6 @@ export default DS.Model.extend({
   lineItemsQuantity: DS.attr(),
   selected: DS.attr(),
   purchaseOrders: DS.hasMany('purchase-order'),
-  lineItems: DS.hasMany('line-item')
+  lineItems: DS.hasMany('line-item'),
+  palletType: DS.belongsTo('pallet-type')
 });

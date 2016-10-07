@@ -1,0 +1,78 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Edit VK-Pos {{model.purchasePosition.baanId}}</h4>
+    </div>
+    <div class="card-block">
+      <form>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Verfügbare Menge</label>
+          <div class="col-sm-10">
+            {{input value=model.purchasePosition.availableQuantity classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Menge Total</label>
+          <div class="col-sm-10">
+            {{input value=model.purchasePosition.quantity classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Artikel</label>
+          <div class="col-sm-10">
+            {{input value=model.purchasePosition.article classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Artikel Nr.</label>
+          <div class="col-sm-10">
+            {{input value=model.purchasePosition.articleNumber classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Warenhaus</label>
+          <div class="col-sm-10">
+            {{input value=model.purchasePosition.storageLocation classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Gewicht einzeln</label>
+          <div class="col-sm-10">
+            {{input value=model.weightSingle classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Brutto Preis</label>
+          <div class="col-sm-10">
+            {{input value=model.grossPrice classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Netto Preis</label>
+          <div class="col-sm-10">
+            {{input value=model.netPrice classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Rabatt</label>
+          <div class="col-sm-10">
+            {{input value=model.valueDiscount classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Volumen</label>
+          <div class="col-sm-10">
+            {{input value=model.volume classNames="form-control"}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-sm-2 col-sm-10">
+            <button class="btn btn-outline-primary" {{action 'save'}}>Speichern</button>
+            <button class="btn btn-outline-secondary" {{action 'abort'}}>Abbrechen</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{outlet}}

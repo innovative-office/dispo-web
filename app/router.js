@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('variant', { path: '/variants/:variant_id' }, function() {
+    this.route('edit');
+  });
   this.route('pallets');
   this.route('pallet', { path: '/pallets/:pallet_id' }, function() {
     this.route('edit');

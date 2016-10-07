@@ -1,1 +1,58 @@
-{{outlet}}
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <h3 class="clearfix">
+        Pallets
+        <hr>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+    <div class="col-md-12">
+      {{#each model as |pallet|}}
+      <div class="card">
+        <div class="card-block">
+          {{#link-to 'pallet.edit' pallet}}{{pallet.palletType.readAs}} - {{pallet.id}}{{/link-to}}
+        </div>
+        <div class="card-block">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Lager</th>
+                <th>Artikel</th>
+                <th>Gebiet</th>
+                <th>Versand</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each pallet.lineItems as |lineItem|}}
+                <tr>
+                  <td scope="row">{{#link-to "variant.edit" lineItem.variant}}{{lineItem.variant.purchasePosition.baanId}}{{/link-to}}</td>
+                  <td>
+                    {{lineItem.variant.purchasePosition.storageLocation}}
+                  </td>
+                  <td>
+                    {{lineItem.variant.purchasePosition.articleNumber}} {{lineItem.variant.purchasePosition.article}}
+                  </td>
+                  <td>
+                    {{lineItem.variant.purchasePosition.zipLocation.title}}
+                  </td>
+                  <td>
+                    {{moment-format lineItem.variant.purchasePosition.deliveryDate "DD-MM-YYYY" allow-empty=true}}
+                  </td>
+                  <td>
+                    {{lineItem.quantity}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
