@@ -11,5 +11,7 @@ export default DS.Model.extend({
   articleNumber: DS.attr(),
   storageLocation: DS.attr(),
   purchaseOrder: DS.belongsTo('purchase-order'),
-  zipLocation: DS.belongsTo('zip-location')
+  zipLocation: DS.belongsTo('zip-location'),
+  shippingRoute: DS.belongsTo('shipping-route'),
+  commodityCode: DS.belongsTo('commodity-code')
 });
