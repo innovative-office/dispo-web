@@ -16,5 +16,6 @@ export default DS.Model.extend({
   deliveryStreet: DS.attr(),
   deliveryCountry: DS.attr(),
   deliveryWarehouse: DS.attr(),
-  shipper: DS.belongsTo('shipper')
+  shipper: DS.belongsTo('shipper'),
+  pallets: DS.hasMany('pallet')
 });
