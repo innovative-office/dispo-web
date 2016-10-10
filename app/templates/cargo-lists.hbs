@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <h3 class="clearfix">
+        Versand
+        <hr>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      {{outlet}}
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Versand</th>
+              <th>Anz. Paletten</th>
+              <th>Für</th>
+              <th>Land</th>
+              <th>Abholtermin</th>
+              <th>Erstellt am</th>
+              <th>Spediteur</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model as |cargoList|}}
+              <tr>
+                <td scope="row">{{#link-to "cargo-list" cargoList}}{{cargoList.id}}{{/link-to}}</td>
+                <td>{{cargoList.palletsCount}}</td>
+                <td>{{cargoList.referee}}</td>
+                <td>{{cargoList.country}}</td>
+                <td>
+                  {{moment-format cargoList.pickUpTimeEarliest "DD-MM-YYYY" allow-empty=true}}
+                </td>
+                <td>
+                  {{moment-format cargoList.createdAt "DD-MM-YYYY" allow-empty=true}}
+                </td>
+                <td>{{cargoList.shipper.name}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

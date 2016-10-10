@@ -25,6 +25,8 @@ Router.map(function() {
   this.route('baan-imports', function() {
     this.route('new');
   });
+  this.route('cargo-lists');
+  this.route('cargo-list', { path: '/cargo-lists/:cargo-list_id' });
 });
 
 export default Router;
