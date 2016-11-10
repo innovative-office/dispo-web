@@ -1,14 +1,39 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-9 offset-md-2">
+    <div class="block-header p-t-2">
+      <h3>Versand {{model.id}}</h3>
+      <small>Spediteur: {{model.shipper.name}}</small>
+    </div>
     <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">Versand <small class="text-muted">{{#link-to 'cargo-list.edit' model}}{{model.id}}{{/link-to}}</small></h4>
-        <p class="card-text"><small class="text-muted">Spediteur:<br>{{model.shipper.name}}</small></p>
+      <div class="meta-block">
+        <div class="meta-header">
+          <h2><i class="fa fa-inbox m-r-5"></i> Basic Information</h2>
+        </div>
+        <div class="meta-body p-l-2">
+          <div class="meta-view">
+            <dl class="dl-horizontal row">
+              <dt class="col-md-2">Spediteur</dt>
+              <dd class="col-md-3">{{model.shipper.name}}</dd>
+            </dl>
+            <dl class="dl-horizontal row">
+              <dt class="col-md-2">Empfänger</dt>
+              <dd class="col-md-3">{{model.referee}}</dd>
+            </dl>
+            <dl class="dl-horizontal row">
+              <dt class="col-md-2">Land</dt>
+              <dd class="col-md-3">{{model.country}}</dd>
+            </dl>
+            <dl class="dl-horizontal row">
+              <dt class="col-md-2">Lieferung</dt>
+              <dd class="col-md-3">{{moment-format model.pickUpTimeEarliest "DD-MM-YYYY" allow-empty=true}}</dd>
+            </dl>
+          </div>
+        </div>
       </div>
-      <img alt="Chart?cht=qr&amp;chs=154x154&amp;chl={{model.id}}" class="img-fluid" src="https://chart.googleapis.com/chart?cht=qr&amp;chs=130x130&amp;chl={{model.id}}">
     </div>
   </div>
-  <div class="col-md-9">
+
+  <div class="col-md-9 offset-md-2">
     <div class="row">
       {{outlet}}
     </div>
@@ -48,7 +73,7 @@
               <td>{{pallet.zipLocation.title}}</td>
               <td>{{pallet.shippingAddress.consigneeFull}}</td>
               <td class="text-xs-center">
-                {{input type="checkbox" name="isAdmin" checked=isAdmin}}
+                {{pallet-assignment-entry pallet=pallet action="remove"}}
               </td>
             </tr>
           {{/each}}
@@ -59,7 +84,7 @@
             </td>
             <td>
               <div class="input-group">
-                <button class="btn btn-outline-primary btn-block" type="button" {{action 'assignItems'}} disabled={{hasLineItems}}><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                <button class="btn btn-outline-primary btn-block" type="button" {{action 'removePallets'}} disabled={{hasLineItems}}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
               </div>
             </td>
           </tr>
@@ -103,7 +128,7 @@
               <td>{{pallet.zipLocation.title}}</td>
               <td>{{pallet.shippingAddress.consigneeFull}}</td>
               <td class="text-xs-center">
-                {{input type="checkbox" name="isAdmin" checked=isAdmin}}
+                {{pallet-assignment-entry pallet=pallet action="assign"}}
               </td>
             </tr>
           {{/each}}
@@ -114,7 +139,7 @@
             </td>
             <td>
               <div class="input-group">
-                <button class="btn btn-outline-primary btn-block" type="button" {{action 'assignItems'}} disabled={{hasLineItems}}><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                <button class="btn btn-outline-primary btn-block" type="button" {{action 'assignPallets'}} disabled={{hasLineItems}}><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
               </div>
             </td>
           </tr>

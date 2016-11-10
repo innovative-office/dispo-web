@@ -11,5 +11,6 @@ export default DS.Model.extend({
   purchaseOrders: DS.hasMany('purchase-order'),
   lineItems: DS.hasMany('line-item'),
   palletType: DS.belongsTo('pallet-type'),
-  zipLocation: DS.belongsTo('zip-location')
+  zipLocation: DS.belongsTo('zip-location'),
+  cargoList: DS.belongsTo('cargo-list')
 });
