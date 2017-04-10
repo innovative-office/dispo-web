@@ -1,2 +1,3 @@
-{{#link-to "purchase-orders" (query-params s=pageSize p=pageNumber)}}{{title}}{{/link-to}}
-{{yield}}
+{{#link-to "purchase-orders" (query-params s=pageSize p=pageNumber) class="page-link"}}
+  {{yield}}
+{{/link-to}}

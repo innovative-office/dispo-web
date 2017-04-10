@@ -73,22 +73,13 @@
               <td>{{pallet.zipLocation.title}}</td>
               <td>{{pallet.shippingAddress.consigneeFull}}</td>
               <td class="text-xs-center">
-                {{pallet-assignment-entry pallet=pallet action="remove"}}
+                <div class="input-group">
+                  <button class="btn btn-outline-primary btn-block" type="button" {{action 'remove' pallet}}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </div>
               </td>
             </tr>
           {{/each}}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="6">
-            </td>
-            <td>
-              <div class="input-group">
-                <button class="btn btn-outline-primary btn-block" type="button" {{action 'removePallets'}} disabled={{hasLineItems}}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-              </div>
-            </td>
-          </tr>
-        </tfoot>
       </table>
     </div>
 
@@ -119,7 +110,7 @@
           </tr>
         </thead>
         <tbody>
-          {{#each availablePallets as |pallet|}}
+          {{#each remainingPallets as |pallet|}}
             <tr>
               <td scope="row">{{pallet.palletType.readAs}} {{pallet.id}}</td>
               <td>{{pallet.lineItemsQuantity}}</td>
@@ -128,25 +119,15 @@
               <td>{{pallet.zipLocation.title}}</td>
               <td>{{pallet.shippingAddress.consigneeFull}}</td>
               <td class="text-xs-center">
-                {{pallet-assignment-entry pallet=pallet action="assign"}}
+                <div class="input-group">
+                  <button class="btn btn-outline-primary btn-block" type="button" {{action 'assign' pallet}}><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                </div>
               </td>
             </tr>
           {{/each}}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="6">
-            </td>
-            <td>
-              <div class="input-group">
-                <button class="btn btn-outline-primary btn-block" type="button" {{action 'assignPallets'}} disabled={{hasLineItems}}><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
-              </div>
-            </td>
-          </tr>
-        </tfoot>
       </table>
     </div>
-
 
   </div>
 </div>

@@ -178,3 +178,21 @@ $list-group-link-hover-color: $list-group-active-color !default;
   font-size: 13px;
   color: rgba(0,0,0,0.87);
 }
+
+.card-block .actions, .block-header .actions {
+  position: absolute;
+  right: 10px;
+  /* z-index: 2;*/
+  top: 15px;
+}
+.actions {
+  list-style: none;
+}
+.actions > li {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.actions > li > a > i, .actions > a > i {
+  color: #adadad;
+  // font-size: 20px;
+}

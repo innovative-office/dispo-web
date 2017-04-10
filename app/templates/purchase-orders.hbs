@@ -1,15 +1,50 @@
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-12">
-      <h3 class="clearfix">
-        Purchase Orders
-        {{pagination-link url=model.links.last title="Last"}}
-        {{pagination-link url=model.links.next title="Next"}}
-        <hr>
-      </h3>
+      <div class="block-header p-t-2">
+        <h3>Purchase Orders</h3>
+      </div>
     </div>
     <div class="col-md-4">
       {{outlet}}
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-block">
+          <form>
+            <div class="form-group">
+              <label>VK-Auftrag</label>
+              {{input value=baanId key-down="searchWithBaanId" class="form-control"}}
+            </div>
+            <div class="form-group">
+              <label>Versendet?</label>
+              <select onchange={{action "filterDelivered" value="target.value"}} class="form-control">
+                {{#each filterOptions as |filterOption|}}
+                  <option value={{filterOption}} selected={{eq filterOption delivered}}>{{filterOption}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tour</label>
+              <select onchange={{action "filterWithShippingRouteId" value="target.value"}} class="form-control">
+                {{#each shippingRoutes as |shippingRoute|}}
+                  <option value={{shippingRoute.id}} selected={{eq shippingRoute.id shippingRouteId}}>{{shippingRoute.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Gebiet</label>
+              <select class="form-control">
+                {{#each zipLocations as |zipLocation|}}
+                  <option value={{zipLocation}}>{{zipLocation.title}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary" {{action 'resetSearch'}}>Reset</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="col-md-12">
       <div class="card">
@@ -17,19 +52,11 @@
           <thead>
             <tr>
               <th>VK</th>
-              <th>
-                Paletten
-              </th>
-              <th>
-                Handelspartner
-              </th>
+              <th>Paletten</th>
+              <th>Handelspartner</th>
               <th>Tour</th>
-              <th>
-                Gebiet
-              </th>
-              <th>
-                Versand
-              </th>
+              <th>Gebiet</th>
+              <th>Versand</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +81,19 @@
           </tbody>
         </table>
       </div>
+      <nav>
+        <ul class="pagination">
+          <li class="page-item">
+            {{#if model.links.next}}
+              {{#pagination-link url=model.links.next title="Next"}}
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              {{/pagination-link}}
+            {{/if}}
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </div>
 </div>

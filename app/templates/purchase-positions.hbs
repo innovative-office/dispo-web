@@ -10,6 +10,21 @@
     </div>
     <div class="col-md-12">
       <div class="card">
+        <div class="card-block">
+          <form>
+            <div class="form-group">
+              <label>VK-Pos</label>
+              {{input value=baanId key-down="searchWithBaanId" class="form-control"}}
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary" {{action 'resetSearch'}}>Reset</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card">
         <table class="table">
           <thead>
             <tr>
